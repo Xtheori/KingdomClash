@@ -8,9 +8,8 @@ var player = {
 	"catapults": 0,
 	"mines": 0
 }
-
 var combat_log = []
-
+var game_over = false
 var enemy = {
 	"gold": 50,
 	"castle_hp": 100,
@@ -19,7 +18,6 @@ var enemy = {
 	"catapults": 0,
 	"mines": 0
 }
-
 var attacked_this_turn = false
 
 func _ready():
@@ -33,7 +31,6 @@ func _ready():
 	"Recruit your army.\n" +
 	"Destroy the enemy castle."
 )
-
 	update_ui()
 
 func log_message(message):
@@ -64,15 +61,25 @@ func update_ui():
 	$MarginContainer/VBoxContainer/EnemyCatapultLabel.text = "Catapults: " + str(enemy["catapults"])
 	$MarginContainer/VBoxContainer/EnemyMineLabel.text = "Mines: " + str(enemy["mines"])
 	if enemy["castle_hp"] <= 0:
-		log_message("[b]🏆 VICTORY![/b]\nYou destroyed the enemy castle!")
+		log_message(
+	"[b]🏆 VICTORY![/b]\n" +
+	"You destroyed the enemy castle!\n\n" +
+	"Press R to play again."
+)
 		disable_game()
 
 	elif player["castle_hp"] <= 0:
-		log_message("[b]💀 DEFEAT![/b]\nYour castle has fallen!")
+		log_message(
+	"[b]💀 DEFEAT![/b]\n" +
+	"Your castle has fallen!\n\n" +
+	"Press R to play again."
+)
 		disable_game()
 
 func disable_game():
-
+	
+	game_over = true
+	
 	$MarginContainer/VBoxContainer/RecruitSoldierButton.disabled = true
 	$MarginContainer/VBoxContainer/RecruitArcherButton.disabled = true
 	$MarginContainer/VBoxContainer/RecruitCatapultButton.disabled = true
@@ -349,3 +356,9 @@ func _on_attack_button_pressed() -> void:
 
 	attack(target)
 	
+func _input(event):
+
+	if game_over and event is InputEventKey and event.pressed:
+
+		if event.keycode == KEY_R:
+			get_tree().reload_current_scene()
