@@ -9,9 +9,11 @@ var player = {
 	"mines": 0
 }
 
+var combat_log = []
+
 var enemy = {
 	"gold": 50,
-	"castle_hp": 10,
+	"castle_hp": 100,
 	"soldiers": 0,
 	"archers": 0,
 	"catapults": 0,
@@ -36,8 +38,15 @@ func _ready():
 
 func log_message(message):
 
+	combat_log.append(message)
+
+	if combat_log.size() > 10:
+		combat_log.pop_front()
+
 	$MarginContainer/VBoxContainer/LogLabel.clear()
-	$MarginContainer/VBoxContainer/LogLabel.append_text(message + "\n")
+
+	for line in combat_log:
+		$MarginContainer/VBoxContainer/LogLabel.append_text(line + "\n\n")
 	$MarginContainer/VBoxContainer/LogLabel.scroll_to_line(999)
 
 func update_ui():
@@ -169,20 +178,25 @@ func enemy_turn():
 
 	end_turn(enemy)
 
-	if enemy["gold"] >= 50 and enemy["mines"] < 2:
-		build_mine(enemy)
+	while true:
 
-	elif enemy["soldiers"] < 5 and enemy["gold"] >= 10:
-		recruit_soldier(enemy)
+		if enemy["gold"] >= 50 and enemy["mines"] < 2:
+			build_mine(enemy)
 
-	elif enemy["archers"] < 3 and enemy["gold"] >= 15:
-		recruit_archer(enemy)
+		elif enemy["soldiers"] < 5 and enemy["gold"] >= 10:
+			recruit_soldier(enemy)
 
-	elif enemy["catapults"] < 3 and enemy["gold"] >= 30:
-		recruit_catapult(enemy)
+		elif enemy["archers"] < 3 and enemy["gold"] >= 15:
+			recruit_archer(enemy)
 
-	elif enemy["gold"] >= 10:
-		recruit_soldier(enemy)
+		elif enemy["catapults"] < 3 and enemy["gold"] >= 30:
+			recruit_catapult(enemy)
+
+		elif enemy["gold"] >= 10:
+			recruit_soldier(enemy)
+
+		else:
+			break
 
 func _on_end_turn_button_pressed() -> void:
 	end_turn(player)
