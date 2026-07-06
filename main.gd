@@ -11,7 +11,7 @@ var player = {
 
 var enemy = {
 	"gold": 50,
-	"castle_hp": 100,
+	"castle_hp": 10,
 	"soldiers": 0,
 	"archers": 0,
 	"catapults": 0,
@@ -54,8 +54,23 @@ func update_ui():
 	$MarginContainer/VBoxContainer/EnemyArcherLabel.text = "Archers: " + str(enemy["archers"])
 	$MarginContainer/VBoxContainer/EnemyCatapultLabel.text = "Catapults: " + str(enemy["catapults"])
 	$MarginContainer/VBoxContainer/EnemyMineLabel.text = "Mines: " + str(enemy["mines"])
+	if enemy["castle_hp"] <= 0:
+		log_message("[b]🏆 VICTORY![/b]\nYou destroyed the enemy castle!")
+		disable_game()
 
+	elif player["castle_hp"] <= 0:
+		log_message("[b]💀 DEFEAT![/b]\nYour castle has fallen!")
+		disable_game()
 
+func disable_game():
+
+	$MarginContainer/VBoxContainer/RecruitSoldierButton.disabled = true
+	$MarginContainer/VBoxContainer/RecruitArcherButton.disabled = true
+	$MarginContainer/VBoxContainer/RecruitCatapultButton.disabled = true
+	$MarginContainer/VBoxContainer/BuildMineButton.disabled = true
+	$MarginContainer/VBoxContainer/AttackButton.disabled = true
+	$MarginContainer/VBoxContainer/EndTurnButton.disabled = true
+	$MarginContainer/VBoxContainer/TargetOption.disabled = true
 
 func recruit_soldier(target):
 	if target["gold"] >= 10:
