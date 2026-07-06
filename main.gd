@@ -21,35 +21,39 @@ var enemy = {
 var attacked_this_turn = false
 
 func _ready():
-	$VBoxContainer/TargetOption.clear()
-	$VBoxContainer/TargetOption.add_item("Soldiers")
-	$VBoxContainer/TargetOption.add_item("Archers")
-	$VBoxContainer/TargetOption.add_item("Catapults")
-	$VBoxContainer/TargetOption.add_item("Castle")
-	log_message("[b]Welcome to Kingdom Clash![/b]\nRecruit your army and defeat the enemy.")
+	$MarginContainer/VBoxContainer/TargetOption.clear()
+	$MarginContainer/VBoxContainer/TargetOption.add_item("Soldiers")
+	$MarginContainer/VBoxContainer/TargetOption.add_item("Archers")
+	$MarginContainer/VBoxContainer/TargetOption.add_item("Catapults")
+	$MarginContainer/VBoxContainer/TargetOption.add_item("Castle")
+	log_message(
+	"[b]GAME START[/b]\n" +
+	"Recruit your army.\n" +
+	"Destroy the enemy castle."
+)
 
 	update_ui()
 
 func log_message(message):
 
-	$VBoxContainer/LogLabel.clear()
-	$VBoxContainer/LogLabel.append_text(message + "\n")
-	$VBoxContainer/LogLabel.scroll_to_line(999)
+	$MarginContainer/VBoxContainer/LogLabel.clear()
+	$MarginContainer/VBoxContainer/LogLabel.append_text(message + "\n")
+	$MarginContainer/VBoxContainer/LogLabel.scroll_to_line(999)
 
 func update_ui():
-	$VBoxContainer/GoldLabel.text = "Gold: " + str(player["gold"])
-	$VBoxContainer/CastleLabel.text = "Castle HP: " + str(player["castle_hp"])
-	$VBoxContainer/SoldierLabel.text = "Soldiers: " + str(player["soldiers"])
-	$VBoxContainer/ArcherLabel.text = "Archers: " + str(player["archers"])
-	$VBoxContainer/CatapultLabel.text = "Catapults: " + str(player["catapults"])
-	$VBoxContainer/MineLabel.text = "Mines: " + str(player["mines"])
+	$MarginContainer/VBoxContainer/GoldLabel.text = "Gold: " + str(player["gold"])
+	$MarginContainer/VBoxContainer/CastleLabel.text = "Castle HP: " + str(player["castle_hp"])
+	$MarginContainer/VBoxContainer/SoldierLabel.text = "Soldiers: " + str(player["soldiers"])
+	$MarginContainer/VBoxContainer/ArcherLabel.text = "Archers: " + str(player["archers"])
+	$MarginContainer/VBoxContainer/CatapultLabel.text = "Catapults: " + str(player["catapults"])
+	$MarginContainer/VBoxContainer/MineLabel.text = "Mines: " + str(player["mines"])
 
-	$VBoxContainer/EnemyGoldLabel.text = "Gold: " + str(enemy["gold"])
-	$VBoxContainer/EnemyCastleLabel.text = "Castle HP: " + str(enemy["castle_hp"])
-	$VBoxContainer/EnemySoldierLabel.text = "Soldiers: " + str(enemy["soldiers"])
-	$VBoxContainer/EnemyArcherLabel.text = "Archers: " + str(enemy["archers"])
-	$VBoxContainer/EnemyCatapultLabel.text = "Catapults: " + str(enemy["catapults"])
-	$VBoxContainer/EnemyMineLabel.text = "Mines: " + str(enemy["mines"])
+	$MarginContainer/VBoxContainer/EnemyGoldLabel.text = "Gold: " + str(enemy["gold"])
+	$MarginContainer/VBoxContainer/EnemyCastleLabel.text = "Castle HP: " + str(enemy["castle_hp"])
+	$MarginContainer/VBoxContainer/EnemySoldierLabel.text = "Soldiers: " + str(enemy["soldiers"])
+	$MarginContainer/VBoxContainer/EnemyArcherLabel.text = "Archers: " + str(enemy["archers"])
+	$MarginContainer/VBoxContainer/EnemyCatapultLabel.text = "Catapults: " + str(enemy["catapults"])
+	$MarginContainer/VBoxContainer/EnemyMineLabel.text = "Mines: " + str(enemy["mines"])
 
 
 
@@ -254,8 +258,8 @@ func attack(target_name):
 
 func _on_attack_button_pressed() -> void:
 
-	var target = $VBoxContainer/TargetOption.get_item_text(
-		$VBoxContainer/TargetOption.selected
+	var target = $MarginContainer/VBoxContainer/TargetOption.get_item_text(
+		$MarginContainer/VBoxContainer/TargetOption.selected
 	)
 
 	attack(target)

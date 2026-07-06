@@ -9,87 +9,93 @@ offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_ig7tw")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=630748975]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1141149032]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 238.0
 
-[node name="GoldLabel" type="Label" parent="VBoxContainer" unique_id=339413937]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=630748975]
 layout_mode = 2
 
-[node name="CastleLabel" type="Label" parent="VBoxContainer" unique_id=537808783]
+[node name="GoldLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=339413937]
 layout_mode = 2
 
-[node name="ArcherLabel" type="Label" parent="VBoxContainer" unique_id=817875146]
+[node name="CastleLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=537808783]
 layout_mode = 2
 
-[node name="CatapultLabel" type="Label" parent="VBoxContainer" unique_id=997190457]
+[node name="ArcherLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=817875146]
 layout_mode = 2
 
-[node name="MineLabel" type="Label" parent="VBoxContainer" unique_id=1626461128]
+[node name="CatapultLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=997190457]
 layout_mode = 2
 
-[node name="SoldierLabel" type="Label" parent="VBoxContainer" unique_id=433020638]
+[node name="MineLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1626461128]
 layout_mode = 2
 
-[node name="RecruitSoldierButton" type="Button" parent="VBoxContainer" unique_id=1628832774]
+[node name="SoldierLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=433020638]
+layout_mode = 2
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer" unique_id=1793704089]
+layout_mode = 2
+
+[node name="RecruitSoldierButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1628832774]
 layout_mode = 2
 text = "Recruit Soldier"
 
-[node name="RecruitArcherButton" type="Button" parent="VBoxContainer" unique_id=290300466]
+[node name="RecruitArcherButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=290300466]
 layout_mode = 2
 text = "Recruit Archer"
 
-[node name="RecruitCatapultButton" type="Button" parent="VBoxContainer" unique_id=296986218]
+[node name="RecruitCatapultButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=296986218]
 layout_mode = 2
 text = "Recruit Catapult"
 
-[node name="BuildMineButton" type="Button" parent="VBoxContainer" unique_id=983248934]
+[node name="BuildMineButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=983248934]
 layout_mode = 2
 text = "Build Mine"
 
-[node name="TargetOption" type="OptionButton" parent="VBoxContainer" unique_id=1124093183]
+[node name="TargetOption" type="OptionButton" parent="MarginContainer/VBoxContainer" unique_id=1124093183]
 layout_mode = 2
 
-[node name="AttackButton" type="Button" parent="VBoxContainer" unique_id=1621584333]
+[node name="AttackButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1621584333]
 layout_mode = 2
 text = "Attack"
 
-[node name="EndTurnButton" type="Button" parent="VBoxContainer" unique_id=196791611]
+[node name="EndTurnButton" type="Button" parent="MarginContainer/VBoxContainer" unique_id=196791611]
 layout_mode = 2
 text = "End Turn"
 
-[node name="LogLabel" type="RichTextLabel" parent="VBoxContainer" unique_id=412316064]
-custom_minimum_size = Vector2(300, 120)
-custom_maximum_size = Vector2(100, 120)
+[node name="CombatLogLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1504686628]
 layout_mode = 2
-size_flags_vertical = 3
 
-[node name="EnemyLabel" type="Label" parent="VBoxContainer" unique_id=1489504902]
+[node name="LogLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer" unique_id=2115325161]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
+[node name="EnemyLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1489504902]
 layout_mode = 2
 text = "==========ENEMY=========="
 
-[node name="EnemyGoldLabel" type="Label" parent="VBoxContainer" unique_id=142442085]
+[node name="EnemyGoldLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=142442085]
 layout_mode = 2
 
-[node name="EnemyCastleLabel" type="Label" parent="VBoxContainer" unique_id=1954162643]
+[node name="EnemyCastleLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1954162643]
 layout_mode = 2
 
-[node name="EnemySoldierLabel" type="Label" parent="VBoxContainer" unique_id=1723020719]
+[node name="EnemySoldierLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1723020719]
 layout_mode = 2
 
-[node name="EnemyArcherLabel" type="Label" parent="VBoxContainer" unique_id=1064026813]
+[node name="EnemyArcherLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1064026813]
 layout_mode = 2
 
-[node name="EnemyCatapultLabel" type="Label" parent="VBoxContainer" unique_id=1016422678]
+[node name="EnemyCatapultLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1016422678]
 layout_mode = 2
 
-[node name="EnemyMineLabel" type="Label" parent="VBoxContainer" unique_id=1352209333]
+[node name="EnemyMineLabel" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1352209333]
 layout_mode = 2
 
-[connection signal="pressed" from="VBoxContainer/RecruitSoldierButton" to="." method="_on_recruit_soldier_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/RecruitArcherButton" to="." method="_on_recruit_archer_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/RecruitCatapultButton" to="." method="_on_recruit_catapult_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/BuildMineButton" to="." method="_on_build_mine_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/AttackButton" to="." method="_on_attack_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/EndTurnButton" to="." method="_on_end_turn_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/RecruitSoldierButton" to="." method="_on_recruit_soldier_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/RecruitArcherButton" to="." method="_on_recruit_archer_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/RecruitCatapultButton" to="." method="_on_recruit_catapult_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/BuildMineButton" to="." method="_on_build_mine_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/AttackButton" to="." method="_on_attack_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/EndTurnButton" to="." method="_on_end_turn_button_pressed"]
