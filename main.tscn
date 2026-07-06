@@ -59,6 +59,12 @@ text = "Attack"
 layout_mode = 2
 text = "End Turn"
 
+[node name="LogLabel" type="RichTextLabel" parent="VBoxContainer" unique_id=412316064]
+custom_minimum_size = Vector2(300, 120)
+custom_maximum_size = Vector2(100, 120)
+layout_mode = 2
+size_flags_vertical = 3
+
 [node name="EnemyLabel" type="Label" parent="VBoxContainer" unique_id=1489504902]
 layout_mode = 2
 text = "==========ENEMY=========="
@@ -79,9 +85,6 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="EnemyMineLabel" type="Label" parent="VBoxContainer" unique_id=1352209333]
-layout_mode = 2
-
-[node name="LogLabel" type="RichTextLabel" parent="VBoxContainer" unique_id=412316064]
 layout_mode = 2
 
 [connection signal="pressed" from="VBoxContainer/RecruitSoldierButton" to="." method="_on_recruit_soldier_button_pressed"]

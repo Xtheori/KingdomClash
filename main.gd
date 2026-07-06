@@ -33,7 +33,8 @@ func _ready():
 func log_message(message):
 
 	$VBoxContainer/LogLabel.clear()
-	$VBoxContainer/LogLabel.append_text(message)
+	$VBoxContainer/LogLabel.append_text(message + "\n")
+	$VBoxContainer/LogLabel.scroll_to_line(999)
 
 func update_ui():
 	$VBoxContainer/GoldLabel.text = "Gold: " + str(player["gold"])
