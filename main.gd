@@ -47,19 +47,20 @@ func log_message(message):
 	$MarginContainer/VBoxContainer/LogLabel.scroll_to_line(999)
 
 func update_ui():
-	$MarginContainer/VBoxContainer/GoldLabel.text = "Gold: " + str(player["gold"])
-	$MarginContainer/VBoxContainer/CastleLabel.text = "Castle HP: " + str(player["castle_hp"])
-	$MarginContainer/VBoxContainer/SoldierLabel.text = "Soldiers: " + str(player["soldiers"])
-	$MarginContainer/VBoxContainer/ArcherLabel.text = "Archers: " + str(player["archers"])
-	$MarginContainer/VBoxContainer/CatapultLabel.text = "Catapults: " + str(player["catapults"])
-	$MarginContainer/VBoxContainer/MineLabel.text = "Mines: " + str(player["mines"])
 
-	$MarginContainer/VBoxContainer/EnemyGoldLabel.text = "Gold: " + str(enemy["gold"])
-	$MarginContainer/VBoxContainer/EnemyCastleLabel.text = "Castle HP: " + str(enemy["castle_hp"])
-	$MarginContainer/VBoxContainer/EnemySoldierLabel.text = "Soldiers: " + str(enemy["soldiers"])
-	$MarginContainer/VBoxContainer/EnemyArcherLabel.text = "Archers: " + str(enemy["archers"])
-	$MarginContainer/VBoxContainer/EnemyCatapultLabel.text = "Catapults: " + str(enemy["catapults"])
-	$MarginContainer/VBoxContainer/EnemyMineLabel.text = "Mines: " + str(enemy["mines"])
+	$MarginContainer/VBoxContainer/PlayerPanel/MarginContainer/VBoxContainer/GoldLabel.text = "Gold: " + str(player["gold"])
+	$MarginContainer/VBoxContainer/PlayerPanel/MarginContainer/VBoxContainer/CastleLabel.text = "Castle HP: " + str(player["castle_hp"])
+	$MarginContainer/VBoxContainer/PlayerPanel/MarginContainer/VBoxContainer/SoldierLabel.text = "Soldiers: " + str(player["soldiers"])
+	$MarginContainer/VBoxContainer/PlayerPanel/MarginContainer/VBoxContainer/ArcherLabel.text = "Archers: " + str(player["archers"])
+	$MarginContainer/VBoxContainer/PlayerPanel/MarginContainer/VBoxContainer/CatapultLabel.text = "Catapults: " + str(player["catapults"])
+	$MarginContainer/VBoxContainer/PlayerPanel/MarginContainer/VBoxContainer/MineLabel.text = "Mines: " + str(player["mines"])
+	
+	$MarginContainer/VBoxContainer/EnemyPanel/MarginContainer/VBoxContainer/EnemyGoldLabel.text = "Gold: " + str(enemy["gold"])
+	$MarginContainer/VBoxContainer/EnemyPanel/MarginContainer/VBoxContainer/EnemyCastleLabel.text = "Castle HP: " + str(enemy["castle_hp"])
+	$MarginContainer/VBoxContainer/EnemyPanel/MarginContainer/VBoxContainer/EnemySoldierLabel.text = "Soldiers: " + str(enemy["soldiers"])
+	$MarginContainer/VBoxContainer/EnemyPanel/MarginContainer/VBoxContainer/EnemyArcherLabel.text = "Archers: " + str(enemy["archers"])
+	$MarginContainer/VBoxContainer/EnemyPanel/MarginContainer/VBoxContainer/EnemyCatapultLabel.text = "Catapults: " + str(enemy["catapults"])
+	$MarginContainer/VBoxContainer/EnemyPanel/MarginContainer/VBoxContainer/EnemyMineLabel.text = "Mines: " + str(enemy["mines"])
 	if enemy["castle_hp"] <= 0:
 		log_message(
 	"[b]🏆 VICTORY![/b]\n" +
